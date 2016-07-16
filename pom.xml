@@ -16,5 +16,7 @@
     <packaging>pom</packaging>
 
     <modules>
+        <module>app-server-transform</module>
+        <module>dom4web</module>
     </modules>
 </project>
