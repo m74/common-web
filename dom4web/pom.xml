@@ -8,6 +8,7 @@
     </parent>
     <groupId>ru.mixam.libs</groupId>
     <artifactId>dom4web</artifactId>
+    <version>0.0.1</version>
     <properties>
         <project.build.sourceEncoding>cp1251</project.build.sourceEncoding>
     </properties>
