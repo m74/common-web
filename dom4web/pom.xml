@@ -1,17 +1,14 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
-
     <parent>
-        <groupId>ru.com.m74</groupId>
-        <artifactId>common-web</artifactId>
+        <groupId>ru.com.m74.webapp</groupId>
+        <artifactId>webapp-parent</artifactId>
         <version>0.0.1</version>
     </parent>
-
     <groupId>ru.mixam.libs</groupId>
     <artifactId>dom4web</artifactId>
     <version>0.0.1</version>
-
     <properties>
         <project.build.sourceEncoding>cp1251</project.build.sourceEncoding>
     </properties>
@@ -30,6 +27,12 @@
             <groupId>ru.mixam.libs</groupId>
             <artifactId>format-currency</artifactId>
             <version>0.0.1</version>
+        </dependency>
+        <dependency>
+            <groupId>ru.mixam.libs</groupId>
+            <artifactId>app-server-runtime</artifactId>
+            <version>0.0.1</version>
+            <scope>provided</scope>
         </dependency>
     </dependencies>
 </project>
