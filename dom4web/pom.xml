@@ -28,11 +28,16 @@
             <artifactId>format-currency</artifactId>
             <version>0.0.1</version>
         </dependency>
+        <dependency>
+            <groupId>dom4j</groupId>
+            <artifactId>dom4j</artifactId>
+            <version>1.6.1</version>
+        </dependency>
         <!--<dependency>-->
-            <!--<groupId>ru.mixam.libs</groupId>-->
-            <!--<artifactId>app-server-runtime</artifactId>-->
-            <!--<version>0.0.1</version>-->
-            <!--<scope>provided</scope>-->
+        <!--<groupId>ru.mixam.libs</groupId>-->
+        <!--<artifactId>app-server-runtime</artifactId>-->
+        <!--<version>0.0.1</version>-->
+        <!--<scope>provided</scope>-->
         <!--</dependency>-->
     </dependencies>
 </project>
