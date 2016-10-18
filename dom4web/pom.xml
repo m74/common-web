@@ -19,7 +19,7 @@
             <version>2.2</version>
         </dependency>
         <dependency>
-            <groupId>ru.mixam.libs</groupId>
+            <groupId>ru.com.m74</groupId>
             <artifactId>logger</artifactId>
             <version>0.0.1</version>
         </dependency>
@@ -28,11 +28,11 @@
             <artifactId>format-currency</artifactId>
             <version>0.0.1</version>
         </dependency>
-        <dependency>
-            <groupId>ru.mixam.libs</groupId>
-            <artifactId>app-server-runtime</artifactId>
-            <version>0.0.1</version>
-            <scope>provided</scope>
-        </dependency>
+        <!--<dependency>-->
+            <!--<groupId>ru.mixam.libs</groupId>-->
+            <!--<artifactId>app-server-runtime</artifactId>-->
+            <!--<version>0.0.1</version>-->
+            <!--<scope>provided</scope>-->
+        <!--</dependency>-->
     </dependencies>
 </project>
