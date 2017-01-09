@@ -18,5 +18,6 @@
     <modules>
         <module>app-server-transform</module>
         <module>dom4web</module>
+        <module>thumbnail-servlet</module>
     </modules>
 </project>
