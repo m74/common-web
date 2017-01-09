@@ -17,12 +17,8 @@ public class URIResolver implements javax.xml.transform.URIResolver {
 
     private ServletContext ctx;
 
-    // private String defaultBase;
-
     public URIResolver(ServletContext ctx) {
         this.ctx = ctx;
-        // baseDir = ctx.getInitParameter("base");
-
         Logger.debug(this, "setup context: " + ctx);
     }
 
@@ -33,50 +29,37 @@ public class URIResolver implements javax.xml.transform.URIResolver {
         String systemId = href;
         Logger.debug(this, "href: " + systemId);
 
-        if (pageBase != null) {
 
-            if (href.charAt(0) != '/') {
+        if (href.charAt(0) != '/' && pageBase != null) {
 
-                // Отбрасываем файл и получаем текущую директорию
-                if (pageBase.charAt(pageBase.length() - 1) != '/')
-                    pageBase = pageBase.substring(0, pageBase.lastIndexOf('/') + 1);
+            // Отбрасываем файл и получаем текущую директорию
+            if (pageBase.charAt(pageBase.length() - 1) != '/')
+                pageBase = pageBase.substring(0, pageBase.lastIndexOf('/') + 1);
 
-                systemId = pageBase + href;
-            }
+            systemId = pageBase + href;
+        }
 
-            Logger.debug(this, "systemId: " + systemId);
+        Logger.debug(this, "systemId: " + systemId);
 
-            // Преобразовать отностельный путь в абсолютный
-            if (systemId.charAt(0) == '/') {
-                // Убрать contextPath из systemId, иначе getRealPath() сработает
-                // не корректно.
-                // !!! Непонятно зачем убирать, может изначально указывать путь
-                // с учетом контекста
-                // systemId = systemId.replaceFirst(
-                // "/" + ctx.getServletContextName(), "");
-
-                File f = new File(ctx.getRealPath(systemId));
-                if (f.exists())
-                    systemId = "file:" + f.getAbsolutePath();
-                else {
-                    try {
-                        URL url = ctx.getResource(systemId);
-                        if (url == null) throw new TransformerException("Resource not foubd: " + systemId);
-                        systemId = url.toString();
-                    } catch (MalformedURLException e) {
-                        throw new TransformerException(e);
-                    }
+        // Преобразовать отностельный путь в абсолютный
+        if (systemId.charAt(0) == '/') {
+            File f = new File(ctx.getRealPath(systemId));
+            if (f.exists())
+                systemId = "file:" + f.getAbsolutePath();
+            else {
+                try {
+                    URL url = ctx.getResource(systemId);
+                    if (url == null) throw new TransformerException("Resource not found: " + systemId);
+                    systemId = url.toString();
+                } catch (MalformedURLException e) {
+                    throw new TransformerException(e);
                 }
             }
         }
+
 
         Logger.debug(this, "resolve: " + systemId);
 
         return new StreamSource(systemId);
     }
-
-    // public void setDefaultBase(String defaultBase) {
-    // this.defaultBase = defaultBase;
-    // Logger.debug(this, "defaultBase: " + defaultBase);
-    // }
 }
