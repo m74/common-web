@@ -8,6 +8,7 @@
         <groupId>ru.com.m74.webapp</groupId>
         <artifactId>webapp-parent</artifactId>
         <version>0.0.1</version>
+        <relativePath>../parents/webapp-parent/pom.xml</relativePath>
     </parent>
 
     <groupId>ru.com.m74</groupId>

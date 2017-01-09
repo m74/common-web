@@ -8,6 +8,11 @@
     </parent>
     <groupId>ru.mixam.servlet</groupId>
     <artifactId>thumbnail-servlet</artifactId>
+
+    <properties>
+        <java.version>1.7</java.version>
+    </properties>
+
     <dependencies>
         <dependency>
             <groupId>commons-io</groupId>
