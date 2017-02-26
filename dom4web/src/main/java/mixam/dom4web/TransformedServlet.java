@@ -1,7 +1,8 @@
 package mixam.dom4web;
 
-import java.io.IOException;
-import java.io.UnsupportedEncodingException;
+import mixam.webtools.Logger;
+import org.dom4j.Document;
+import org.dom4j.io.DocumentSource;
 
 import javax.servlet.ServletConfig;
 import javax.servlet.ServletContext;
@@ -11,11 +12,8 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.xml.transform.TransformerException;
 import javax.xml.transform.TransformerFactory;
-
-import mixam.webtools.Logger;
-
-import org.dom4j.Document;
-import org.dom4j.io.DocumentSource;
+import java.io.IOException;
+import java.io.UnsupportedEncodingException;
 
 public abstract class TransformedServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
