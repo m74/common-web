@@ -1,16 +1,12 @@
 package mixam.dom4web.filters;
 
-import java.io.ByteArrayOutputStream;
-import java.io.IOException;
-import java.io.OutputStreamWriter;
-import java.io.PrintWriter;
-import java.io.UnsupportedEncodingException;
+import org.apache.log4j.Logger;
 
 import javax.servlet.ServletOutputStream;
+import javax.servlet.WriteListener;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpServletResponseWrapper;
-
-import org.apache.log4j.Logger;
+import java.io.*;
 
 /**
  * Вспомогательный класс для работы фильтра с содержимым страницы в виде строки.
@@ -50,6 +46,16 @@ public class CharResponseWrapper extends HttpServletResponseWrapper {
 	public ServletOutputStream getOutputStream() throws IOException {
 		if (stream == null) {
 			stream = new ServletOutputStream() {
+				@Override
+				public boolean isReady() {
+					return false;
+				}
+
+				@Override
+				public void setWriteListener(WriteListener writeListener) {
+
+				}
+
 				public void write(int b) throws IOException {
 					bout.write((byte) b);
 				}
