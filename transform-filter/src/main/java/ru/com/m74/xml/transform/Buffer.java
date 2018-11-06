@@ -1,6 +1,7 @@
 package ru.com.m74.xml.transform;
 
 import javax.servlet.ServletOutputStream;
+import javax.servlet.WriteListener;
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 
@@ -18,5 +19,15 @@ public class Buffer extends ServletOutputStream {
 
     public byte[] getContent() {
         return bout.toByteArray();
+    }
+
+    @Override
+    public boolean isReady() {
+        return false;
+    }
+
+    @Override
+    public void setWriteListener(WriteListener writeListener) {
+
     }
 }
